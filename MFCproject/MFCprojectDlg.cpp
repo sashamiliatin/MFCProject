@@ -190,6 +190,8 @@ void CMFCprojectDlg::OnRButtonDblClk(UINT nFlags, CPoint point)
 	//RESIE
 	// TODO: Add your message handler code here and/or call default
 	CPaintDC dc(this); // device context for painting
+
+
 	for (int i = 0; i < figs.GetSize(); i++)
 	{
 		if (figs[i]->isInside(point))
@@ -212,6 +214,7 @@ void CMFCprojectDlg::OnDrawRectangle()
 		pMenu->CheckMenuItem(ID_DRAW_RECTANGLE, MF_CHECKED | MF_BYCOMMAND);
 		pMenu->CheckMenuItem(ID_DRAW_ELIPCE, MF_UNCHECKED | MF_BYCOMMAND);
 		pMenu->CheckMenuItem(ID_DRAW_DAVIDSTAR, MF_UNCHECKED | MF_BYCOMMAND);
+		pMenu->CheckMenuItem(ID_DRAW_SQUARE, MF_UNCHECKED | MF_BYCOMMAND);
 	}
 }
 
@@ -225,6 +228,7 @@ void CMFCprojectDlg::OnDrawElipce()
 		pMenu->CheckMenuItem(ID_DRAW_RECTANGLE, MF_UNCHECKED | MF_BYCOMMAND);
 		pMenu->CheckMenuItem(ID_DRAW_ELIPCE, MF_CHECKED | MF_BYCOMMAND);
 		pMenu->CheckMenuItem(ID_DRAW_DAVIDSTAR, MF_UNCHECKED | MF_BYCOMMAND);
+		pMenu->CheckMenuItem(ID_DRAW_SQUARE, MF_UNCHECKED | MF_BYCOMMAND);
 	}
 }
 
@@ -238,6 +242,20 @@ void CMFCprojectDlg::OnDrawDavidstar()
 		pMenu->CheckMenuItem(ID_DRAW_RECTANGLE, MF_UNCHECKED | MF_BYCOMMAND);
 		pMenu->CheckMenuItem(ID_DRAW_ELIPCE, MF_UNCHECKED | MF_BYCOMMAND);
 		pMenu->CheckMenuItem(ID_DRAW_DAVIDSTAR, MF_CHECKED | MF_BYCOMMAND);
+		pMenu->CheckMenuItem(ID_DRAW_SQUARE, MF_UNCHECKED | MF_BYCOMMAND);
+	}
+}
+
+void CMFCprojectDlg::OnDrawSquare()
+{
+	futureFigureKind = 4;
+	CMenu *pMenu = GetMenu();
+	if (pMenu != NULL)
+	{
+		pMenu->CheckMenuItem(ID_DRAW_RECTANGLE, MF_UNCHECKED | MF_BYCOMMAND);
+		pMenu->CheckMenuItem(ID_DRAW_ELIPCE, MF_UNCHECKED | MF_BYCOMMAND);
+		pMenu->CheckMenuItem(ID_DRAW_DAVIDSTAR, MF_UNCHECKED | MF_BYCOMMAND);
+		pMenu->CheckMenuItem(ID_DRAW_SQUARE, MF_CHECKED | MF_BYCOMMAND);
 	}
 }
 
@@ -341,15 +359,4 @@ void CMFCprojectDlg::OnBrushcolor()
 }
 
 
-void CMFCprojectDlg::OnDrawSquare()
-{
-	futureFigureKind = 4;
-	CMenu *pMenu = GetMenu();
-	if (pMenu != NULL)
-	{
-		pMenu->CheckMenuItem(ID_DRAW_RECTANGLE, MF_UNCHECKED | MF_BYCOMMAND);
-		pMenu->CheckMenuItem(ID_DRAW_ELIPCE, MF_UNCHECKED | MF_BYCOMMAND);
-		pMenu->CheckMenuItem(ID_DRAW_DAVIDSTAR, MF_UNCHECKED | MF_BYCOMMAND);
-		pMenu->CheckMenuItem(ID_DRAW_SQUARE, MF_CHECKED | MF_BYCOMMAND);
-	}
-}
+
